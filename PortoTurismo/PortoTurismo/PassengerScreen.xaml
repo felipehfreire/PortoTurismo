@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Passageiros"
+             x:Class="PortoTurismo.PassengerScreen">
+    <ContentPage.ToolbarItems >
+        <ToolbarItem Name="Close" Order="Primary" Icon="close.png" Text="fechar" Priority="1" Clicked="Close_Clicked"  />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView x:Name="SVPassenger" HeightRequest="500">
+            <StackLayout>
+                <SearchBar x:Name="FilterPassengerSearch" Text="{Binding Procedure}" 
+                       Placeholder="Procure por Passageiros..."  
+                       BackgroundColor="#999999" 
+                       TextColor="GreenYellow" 
+                       CancelButtonColor="GreenYellow" 
+                       PlaceholderColor="GreenYellow" 
+                       HeightRequest="40.0" 
+                       FontAttributes="Bold"
+                       TextChanged="FilterPassengerSearch_TextChanged"
+                       Focused="FilterPassengerSearch_Focused"
+                       >
+                </SearchBar>
+
+                <ListView x:Name="ListViewPassengersFilter" 
+                    ItemSelected="ListViewPassengersFilter_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding Name}" DetailColor="Yellow"  Detail="{Binding PassengerDetails}"></TextCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
+
+                <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Button Text="+" 
+                        BackgroundColor="#99ff02"
+                        FontSize="Large"
+                        TextColor="#999999"
+                        FontAttributes="Bold"
+                        AbsoluteLayout.LayoutFlags="PositionProportional" 
+                        AbsoluteLayout.LayoutBounds="0.9, 0.9, 80, 80" 
+                        CornerRadius="50"
+                        Clicked="NewPassenger"
+                      ></Button>
+
+                </AbsoluteLayout>
+            </StackLayout>
+
+
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

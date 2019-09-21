@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Cadastro de Passageiro"
+             x:Class="PortoTurismo.NewPassengerScreen">
+    <ContentPage.ToolbarItems >
+        <ToolbarItem Name="Close" Order="Primary" Icon="close.png" Text="fechar" Priority="1" Clicked="Close_Clicked"  />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="15,5,15,5">
+                <Image Source="Passenger80Px.png" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand"></Image>
+
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                    <Image  Source="person48px.png" HorizontalOptions="Start"/>
+                    <Entry x:Name="PassengerName" Text="{Binding Patient}" Placeholder="Nome Passageiro" 
+                           PlaceholderColor="#99ff02" 
+                           TextColor="#99ff02" 
+                           HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                    <Image  Source="phone48px.png" HorizontalOptions="Start"/>
+                    <Entry x:Name="PassengerTelephone"
+                           Text="{Binding Patient}" 
+                           Placeholder="Telefone" 
+                           PlaceholderColor="#99ff02" 
+                           TextColor="#99ff02" 
+                           Keyboard="Telephone"
+                           HorizontalOptions="FillAndExpand"
+                           TextChanged="Format_Telephone"
+                            />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="FillAndExpand">
+                    <Image  Source="person_details48px.png" HorizontalOptions="Start"/>
+                    <Entry x:Name="PassengerRG"
+                        Text="{Binding Patient}" Placeholder="R.G" 
+                           PlaceholderColor="#99ff02" 
+                           TextColor="#99ff02" 
+                           Keyboard="Numeric"
+                           HorizontalOptions="FillAndExpand" 
+                           TextChanged="Format_RG"/>
+                </StackLayout>
+
+                <AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <Button 
+                        BackgroundColor="#99ff02"
+                        FontSize="Large"
+                        TextColor="#999999"
+                         Image="save48px.png"
+                        FontAttributes="Bold"
+                        AbsoluteLayout.LayoutFlags="PositionProportional" 
+                        AbsoluteLayout.LayoutBounds="0.9, 0.9, 80, 80" 
+                        CornerRadius="50"
+                        Clicked="Save_Passenger"
+                      ></Button>
+
+                </AbsoluteLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
